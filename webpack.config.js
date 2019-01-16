@@ -3,17 +3,21 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/styles.css',
+  entry: './src/styles.scss',
+  output: {
+    filename: './src/styles.css'
+  },
   mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             { loader: 'css-loader', options: { importLoaders: 1 } },
             'postcss-loader',
+            'sass-loader',
           ],
         }),
       },
