@@ -1,0 +1,30 @@
+#section-three {
+    background-color: config('colors.orange-lightest');
+}
+
+
+p {
+    @apply mb-8;
+}
+
+
+.hero {
+/**
+    This will not work
+    @apply sm:text-xl md:text-xl2 lg:text-xl3 hover:text-green-darkest;
+**/
+    &:hover {
+        @apply text-green;
+    }
+    @screen sm {
+        @apply text-xl;
+    }
+
+    @screen md {
+        @apply text-2xl;
+    }
+
+    @screen lg {
+        @apply text-4xl;
+    }
+}
